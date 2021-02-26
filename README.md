@@ -70,22 +70,18 @@ CredentialExchange, but this should be considered a degenerate variation.
 
 These are some of the kinds of inputs that might encapsulated in a Credential:
 
-- A PHP session ID
-- A Java Web Token
+- A JSON Web Token
 - An API key and and secret
-- A username:password combination from HTTP Basic auth
 - A command-line username
 - A framework-provided User object
 
 Each of these Credentials likely requires a different CredentialHandler to
 convert them to a Domain-specific User.
 
-Notably, *not* a web form username and password for login purposes; that
-behavior might well belong to a separate Bounded Context.
-
-Finally, framework users may have a framework-provided User object that gets put
+Framework users may have a framework-provided User object that gets put
 together as part of the Framework operation. For one example, see the
-`Infra\Identification\Falafel` Credential and CredentialHandler implementations.
+[Infra\Identification\Falafel](./Infra/Identification/Falafel/) Credential
+and CredentialHandler implementations.
 
 ## Alternatives
 
