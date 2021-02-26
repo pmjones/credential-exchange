@@ -44,27 +44,27 @@ CredentialExchange, but this should be considered a degenerate variation.
 ## Collaborations
 
 - Presentation layer creates a Credential object from user inputs.
-  (Http\Action\Item\PostItem)[./src/Http/Action/Item/PostItem.php]
+  [Http\Action\Item\PostItem](./src/Http/Action/Item/PostItem.php)
 
 - Presentation layer passes the Credential as one of the Application layer
-  inputs. (Http\Action\Item\PostItem)[./src/Http/Action/Item/PostItem.php]
+  inputs. [Http\Action\Item\PostItem](./src/Http/Action/Item/PostItem.php)
 
 - Application layer calls CredentialExchange with the Credential.
-  (App\UseCase\Item\EditItem)[./src/App/UseCase/Item/EditItem.php]
+  [App\UseCase\Item\EditItem](./src/App/UseCase/Item/EditItem.php)
 
 - CredentialExchange chooses and invokes a CredentialHandler based on the type
-  of Credential. (Infra\Identification\CredentialExchange)[./src/Infra/Identification/CredentialExchange.php]
+  of Credential. [Infra\Identification\CredentialExchange](/src/Infra/Identification/CredentialExchange.php)
 
 - CredentialHandler uses the Credential to fetch and return a Domain layer User
   object; the User is returned through the CredentialExchange back to the
   Application layer.
-  (Infra\Identification\Session\SessionCredentialHandler)[./src/Infra/Identification/Session/SessionCredentialHandler.php]
+  [Infra\Identification\Session\SessionCredentialHandler](./src/Infra/Identification/Session/SessionCredentialHandler.php)
 
 - Application layer involves User as needed; e.g. to check anonymity or
-  authorization. (App\UseCase\Item\EditItem)[./src/App/UseCase/Item/EditItem.php]
+  authorization. [App\UseCase\Item\EditItem](./src/App/UseCase/Item/EditItem.php)
 
 - Application layer returns a DomainPayload to the Presentation layer.
-  (App\UseCase\Item\EditItem)[./src/App/UseCase/Item/EditItem.php]
+  [App\UseCase\Item\EditItem](./src/App/UseCase/Item/EditItem.php)
 
 ## Types of Credentials
 
