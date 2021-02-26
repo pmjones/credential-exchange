@@ -25,12 +25,12 @@ modeling, independent of any other layer.
   Application layer marker interface (i.e., an empty interface). There may be
   many different types of Credentials based on the Presentation layer
   requirements; the Credential types are part of the Infrastructure layer and
-  implement the Credential marker interface.
+  implement the Credential marker interface. An example interface is [here](./src/App/Identification/Credential.php).
 
 - **CredentialExchange**: Calls the CredentialHandler for a given Credential; this
   is an Application layer interface defining one method to get a Domain layer
   User object for a given Credential. The implementation is part of the
-  Infrastructure layer.
+  Infrastructure layer. An example interface is [here](./src/App/Identification/CredentialExchange.php).
 
 - **CredentialHandler**: Converts a particular type of Credential to a User. Each
   CredentialHandler is part of the Infrastructure layer only.
@@ -40,6 +40,8 @@ as a CommandBus, and the CredentialHandler as a CommandHandler.
 
 In trivial cases, the CredentialHandler may be collapsed into the
 CredentialExchange, but this should be considered a degenerate variation.
+
+Example implementations are [here](./src/Infra/Identification).
 
 ## Collaborations
 
