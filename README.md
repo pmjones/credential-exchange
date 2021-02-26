@@ -21,18 +21,18 @@ modeling, independent of any other layer.
 
 ## Components
 
-- Credential: One or more inputs indicating a user identity; this is an
+- **Credential**: One or more inputs indicating a user identity; this is an
   Application layer marker interface (i.e., an empty interface). There may be
   many different types of Credentials based on the Presentation layer
   requirements; the Credential types are part of the Infrastructure layer and
   implement the Credential marker interface.
 
-- CredentialExchange: Calls the CredentialHandler for a given Credential; this
+- **CredentialExchange**: Calls the CredentialHandler for a given Credential; this
   is an Application layer interface defining one method to get a Domain layer
   User object for a given Credential. The implementation is part of the
   Infrastructure layer.
 
-- CredentialHandler: Converts a particular type of Credential to a User. Each
+- **CredentialHandler**: Converts a particular type of Credential to a User. Each
   CredentialHandler is part of the Infrastructure layer only.
 
 By way of analogy, consider the Credential as a Command, the CredentialExchange
