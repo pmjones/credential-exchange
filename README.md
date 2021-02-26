@@ -116,8 +116,6 @@ concerned with this kind of thing. The Domain layer doesn't really need to know
 who the Application layer User is, just whether or not a User (any User) is
 allowed to do something.
 
-http://gorodinski.com/blog/2012/04/14/services-in-domain-driven-design-ddd/
-
 ## Credits
 
 Many thanks to Kevin Smith for his comments and criticism during the development
