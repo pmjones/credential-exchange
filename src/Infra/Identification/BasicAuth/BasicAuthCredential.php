@@ -12,7 +12,7 @@ class BasicAuthCredential implements Credential
     public function __construct(string $header)
     {
         // strip "Basic " from the Authorization header
-        $header = substr(trim($header), 6);
+        $header = trim(substr(trim($header), 6));
 
         // decode and split into username and password
         $decoded = base64_decode(trim($header));
