@@ -10,7 +10,7 @@ not tie the Application or Domain layers to any particular user interface.
 This paper describes a technique to identify the Domain layer User by passing
 the identifying information from the Presentation (User Interface) layer into
 the Application layer, and letting the Application layer coordinate the creation
-of the Domain layer User instance via Infrastrucure implementations.
+of the Domain layer User instance via Infrastructure implementations.
 
 This technique eliminates any Presentation layer logic related to discovering
 the Domain layer User (e.g. no need for error handling and other conditionals).
@@ -104,8 +104,8 @@ things:
 - Pass the Domain (Application layer) results to a Responder
 
 To create the Domain layer User, the Action will have to do all the lookup work,
-handle all the errors related to that, short-circuit the UseCase call if lookup
-fails, and report all of that back through the user interface.
+handle all the errors related to that, short-circuit the call to the Application
+layer if lookup fails, and report all of that back through the user interface.
 
 Whereas doing it in the Application layer neatly encapsulates it where errors
 etc. can be reported back in the Domain Payload, relieving the Action of all the
