@@ -4,7 +4,7 @@ namespace Http\Action\Item;
 use App\Identification\Credential;
 use App\UseCase\Item\EditItem;
 use Http\Responder;
-use Infra\Identification\OAuth2TokenCredential;
+use Infra\Identification\Token\TokenCredential;
 use SapiRequest;
 
 class PostItem
@@ -31,6 +31,6 @@ class PostItem
     protected function newCredential() : Credential
     {
         $token = $this->request->headers['authorization'] ?? null;
-        return new OAuth2TokenCredential($token);
+        return new TokenCredential($token);
     }
 }

@@ -1,11 +1,11 @@
 <?php
-namespace Infra\Identity\Oauth2Token;
+namespace Infra\Identity\Token;
 
 use Domain\User\User;
 use Domain\User\UserRepository;
 use Infra\Token\TokenService;
 
-class OAuth2TokenCredentialHandler
+class TokenCredentialHandler
 {
     protected $userRepository;
 
@@ -18,7 +18,7 @@ class OAuth2TokenCredentialHandler
         $this->userRepository = $userRepository;
     }
 
-    public function __invoke(Oauth2TokenCredential $credential) : User
+    public function __invoke(TokenCredential $credential) : User
     {
         $username = $this->tokenService->getUsername($credential->getToken());
         return $this->userRepository->getByName($credential->getUsername());

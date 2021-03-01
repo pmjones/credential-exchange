@@ -60,7 +60,7 @@ Example implementations are [here](./src/Infra/Identification).
 - CredentialHandler uses the Credential to fetch and return a Domain layer User
   object; the User is returned through the CredentialExchange back to the
   Application layer.
-  [Infra\Identification\Session\SessionCredentialHandler](./src/Infra/Identification/Session/SessionCredentialHandler.php)
+  [Infra\Identification\Token\TokenCredentialHandler](./src/Infra/Identification/Token/TokenCredentialHandler.php)
 
 - Application layer involves User as needed; e.g. to check anonymity or
   authorization. [App\UseCase\Item\EditItem](./src/App/UseCase/Item/EditItem.php)

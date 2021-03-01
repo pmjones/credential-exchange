@@ -1,9 +1,9 @@
 <?php
-namespace Infra\Identity\Oauth2Token;
+namespace Infra\Identity\Token;
 
 use App\Identity\Credential;
 
-class OAuth2TokenCredential implements Credential
+class TokenCredential implements Credential
 {
     protected $token;
 
