@@ -19,6 +19,11 @@ identification into a Domain Payload for return back to the Presentation layer.
 The Domain layer can continue to depend only on its own interfaces for User
 modeling, independent of any other layer.
 
+The components and collaborations in this technique are essentially a
+specialized variation on [the Query Bus pattern](https://barryvanveen.nl/blog/59-different-kinds-of-service-bus-command-bus-service-bus-and-query-bus),
+with the Credential as a Query, the CredentialExchange as a QueryBus, and the
+CredentialHandler as a QueryHandler.
+
 ## Components
 
 - **Credential**: One or more inputs indicating a user identity; this is an
@@ -34,9 +39,6 @@ modeling, independent of any other layer.
 
 - **CredentialHandler**: Converts a particular type of Credential to a User. Each
   CredentialHandler is part of the Infrastructure layer only.
-
-By way of analogy, consider the Credential as a Command, the CredentialExchange
-as a CommandBus, and the CredentialHandler as a CommandHandler.
 
 In trivial cases, the CredentialHandler may be collapsed into the
 CredentialExchange, but this should be considered a degenerate variation.
@@ -67,6 +69,7 @@ Example implementations are [here](./src/Infra/Identification).
 
 - Application layer returns a DomainPayload to the Presentation layer.
   [App\UseCase\Item\EditItem](./src/App/UseCase/Item/EditItem.php)
+
 
 ## Types of Credentials
 
@@ -113,10 +116,12 @@ related conditionals.
 
 ### Domain Layer
 
-Unless the Domain layer itself is an IAM context, it shouldn't need to be
-concerned with this kind of thing. The Domain layer doesn't really need to know
-who the Application layer User is, just whether or not a User (any User) is
-allowed to do something.
+The Domain layer, for its part, need not be concerned with who the
+current-user-of-the-Application is. It just needs a Domain layer User object,
+and does not care where it came from. Putting User Interface specifics about the
+current User into the Domain improperly mixes Domain concerns with User
+Interface concerns.
+
 
 ## Credits
 
