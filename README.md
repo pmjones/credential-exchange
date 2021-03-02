@@ -1,12 +1,12 @@
 # CredentialExchange Technique
 
-The Application layer will almost always need to know who is using it, even if
-only to help determine authorization. This is not a problem of authentication
-per se. Instead, it is a problem of taking the identification values provided by
-a prior authentication (such as a JWT or a session ID) and matching them to a
-Domain layer User object. Further, the problem must be solved in a way that does
-not tie the Application or Domain layers to any particular Presentation (User
-Interface) layer.
+In a typical [DDD layered architecture][], the Application layer will almost
+always need to know who is using it, even if only to help determine
+authorization. This is not a problem of authentication per se. Instead, it is a
+problem of taking the identification values provided by a prior authentication
+(such as a JWT or a session ID) and matching them to a Domain layer User object.
+Further, the problem must be solved in a way that does not tie the Application
+or Domain layers to any particular Presentation (User Interface) layer.
 
 This paper describes a technique to identify the Domain layer User by passing
 the identifying information from the Presentation (User Interface) layer into
@@ -25,7 +25,8 @@ specialized variation on the [Query Bus][] pattern, with the Credential as a
 Query, the CredentialExchange as a QueryBus, and the CredentialHandler as a
 QueryHandler.
 
-  [Query Bus]: https://barryvanveen.nl/blog/59-different-kinds-of-service-bus-command-bus-service-bus-and-query-bus
+[DDD layered architecture]: https://archfirst.org/domain-driven-design-6-layered-architecture/
+[Query Bus]: https://barryvanveen.nl/blog/59-different-kinds-of-service-bus-command-bus-service-bus-and-query-bus
 
 ## Components
 
