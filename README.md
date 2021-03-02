@@ -5,24 +5,27 @@ only to help determine authorization. This is not a problem of authentication
 per se. Instead, it is a problem of taking the identification values provided by
 a prior authentication (such as a JWT or a session ID) and matching them to a
 Domain layer User object. Further, the problem must be solved in a way that does
-not tie the Application or Domain layers to any particular user interface.
+not tie the Application or Domain layers to any particular Presentation (User
+Interface) layer.
 
 This paper describes a technique to identify the Domain layer User by passing
 the identifying information from the Presentation (User Interface) layer into
 the Application layer, and letting the Application layer coordinate the creation
 of the Domain layer User instance via Infrastructure implementations.
 
-This technique eliminates any Presentation layer logic related to discovering
-the Domain layer User (e.g. no need for error handling and other conditionals).
-The Application layer can capture any errors from Domain layer User
-identification into a Domain Payload for return back to the Presentation layer.
-The Domain layer can continue to depend only on its own interfaces for User
-modeling, independent of any other layer.
+This technique eliminates any Presentation (User Interface) layer logic related
+to discovering the Domain layer User (e.g. no need for error handling and other
+conditionals). The Application layer can capture any errors from Domain layer
+User identification into a Domain Payload for return back to the Presentation
+layer. The Domain layer can continue to depend only on its own interfaces for
+User modeling, independent of any other layer.
 
 The components and collaborations in this technique are essentially a
-specialized variation on [the Query Bus pattern](https://barryvanveen.nl/blog/59-different-kinds-of-service-bus-command-bus-service-bus-and-query-bus),
-with the Credential as a Query, the CredentialExchange as a QueryBus, and the
-CredentialHandler as a QueryHandler.
+specialized variation on the [Query Bus][] pattern, with the Credential as a
+Query, the CredentialExchange as a QueryBus, and the CredentialHandler as a
+QueryHandler.
+
+  [Query Bus]: https://barryvanveen.nl/blog/59-different-kinds-of-service-bus-command-bus-service-bus-and-query-bus
 
 ## Components
 
