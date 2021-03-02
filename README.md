@@ -88,7 +88,7 @@ Each of these Credentials likely requires a different CredentialHandler to
 convert them to a Domain-specific User.
 
 Framework users may have a framework-provided User object that gets put
-together as part of the Framework operation. For one example, see the
+together as part of the framework operation. For one example, see the
 [Infra\Identification\Falafel](./src/Infra/Identification/Falafel/) Credential
 and CredentialHandler implementations.
 
